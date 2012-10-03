@@ -14,19 +14,32 @@ namespace Ploeh.Samples.RunningJournalApi.AcceptanceTests
         [Fact]
         public void GetReturnsResponseWithCorrectStatusCode()
         {
-            var baseAddress = new Uri("http://localhost:8765");
-            var config = new HttpSelfHostConfiguration(baseAddress);
-            new Bootstrap().Configure(config);
-            var server = new HttpSelfHostServer(config);
-            using (var client = new HttpClient(server))
+            using (var client = CreateHttpClient())
             {
-                client.BaseAddress = baseAddress;
-
                 var response = client.GetAsync("").Result;
 
                 Assert.True(
                     response.IsSuccessStatusCode,
                     "Actual status code: " + response.StatusCode);
+            }
+        }
+
+        private static HttpClient CreateHttpClient()
+        {
+            var baseAddress = new Uri("http://localhost:8765");
+            var config = new HttpSelfHostConfiguration(baseAddress);
+            new Bootstrap().Configure(config);
+            var server = new HttpSelfHostServer(config);
+            var client = new HttpClient(server);
+            try
+            {
+                client.BaseAddress = baseAddress;
+                return client;
+            }
+            catch
+            {
+                client.Dispose();
+                throw;
             }
         }
     }
