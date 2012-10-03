@@ -18,6 +18,8 @@ namespace Ploeh.Samples.RunningJournalApi
                     controller = "Journal",
                     id = RouteParameter.Optional
                 });
+
+            config.Formatters.XmlFormatter.UseXmlSerializer = true;
         }
     }
 }

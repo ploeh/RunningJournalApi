@@ -12,7 +12,9 @@ namespace Ploeh.Samples.RunningJournalApi
     {
         public HttpResponseMessage Get()
         {
-            return this.Request.CreateResponse(HttpStatusCode.OK, "");
+            return this.Request.CreateResponse(
+                HttpStatusCode.OK,
+                new JournalModel());
         }
     }
 }

@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HomeJsonTests.cs" />
+    <Compile Include="HomeXmlTests.cs" />
     <Compile Include="HttpClientFactory.cs" />
     <Compile Include="ContentReader.cs" />
     <Compile Include="JsonContent.cs" />
