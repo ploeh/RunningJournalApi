@@ -14,7 +14,7 @@ namespace Ploeh.Samples.RunningJournalApi.AcceptanceTests
         [Fact]
         public void GetReturnsResponseWithCorrectStatusCode()
         {
-            using (var client = CreateHttpClient())
+            using (var client = HttpClientFactory.Create())
             {
                 var response = client.GetAsync("").Result;
 
@@ -22,25 +22,6 @@ namespace Ploeh.Samples.RunningJournalApi.AcceptanceTests
                     response.IsSuccessStatusCode,
                     "Actual status code: " + response.StatusCode);
             }
-        }
-
-        private static HttpClient CreateHttpClient()
-        {
-            var baseAddress = new Uri("http://localhost:8765");
-            var config = new HttpSelfHostConfiguration(baseAddress);
-            new Bootstrap().Configure(config);
-            var server = new HttpSelfHostServer(config);
-            var client = new HttpClient(server);
-            try
-            {
-                client.BaseAddress = baseAddress;
-                return client;
-            }
-            catch
-            {
-                client.Dispose();
-                throw;
-            }
-        }
+        }        
     }
 }
