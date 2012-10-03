@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Http;
 using System.Net.Http;
+using System.Net;
 
 namespace Ploeh.Samples.RunningJournalApi
 {
@@ -11,7 +12,7 @@ namespace Ploeh.Samples.RunningJournalApi
     {
         public HttpResponseMessage Get()
         {
-            return this.Request.CreateResponse();
+            return this.Request.CreateResponse(HttpStatusCode.OK, "");
         }
     }
 }
