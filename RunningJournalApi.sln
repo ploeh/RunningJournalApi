@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunningJournalApi.AcceptanceTests", "RunningJournalApi.AcceptanceTests\RunningJournalApi.AcceptanceTests.csproj", "{5927ED52-0173-4EF5-B481-80CA9DC23820}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunningJournalApi", "RunningJournalApi\RunningJournalApi.csproj", "{26FF19AA-B9E9-4F0B-919D-475D1ABF3AB7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{5927ED52-0173-4EF5-B481-80CA9DC23820}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5927ED52-0173-4EF5-B481-80CA9DC23820}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5927ED52-0173-4EF5-B481-80CA9DC23820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26FF19AA-B9E9-4F0B-919D-475D1ABF3AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26FF19AA-B9E9-4F0B-919D-475D1ABF3AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26FF19AA-B9E9-4F0B-919D-475D1ABF3AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26FF19AA-B9E9-4F0B-919D-475D1ABF3AB7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
