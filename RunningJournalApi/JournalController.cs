@@ -10,15 +10,21 @@ namespace Ploeh.Samples.RunningJournalApi
 {
     public class JournalController : ApiController
     {
+        private readonly static List<JournalEntryModel> entries = new List<JournalEntryModel>();
+
         public HttpResponseMessage Get()
         {
             return this.Request.CreateResponse(
                 HttpStatusCode.OK,
-                new JournalModel());
+                new JournalModel
+                {
+                    Entries = entries.ToArray()
+                });
         }
 
         public HttpResponseMessage Post(JournalEntryModel journalEntry)
         {
+            entries.Add(journalEntry);
             return this.Request.CreateResponse();
         }
     }

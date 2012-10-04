@@ -60,5 +60,28 @@ namespace Ploeh.Samples.RunningJournalApi.AcceptanceTests
                     "Actual status code: " + response.StatusCode);
             }
         }
+
+        [Fact]
+        public void AfterPostingEntryGetRootReturnsEntryInContent()
+        {
+            using (var client = HttpClientFactory.Create())
+            {
+                var json = new
+                {
+                    time = DateTimeOffset.Now,
+                    distance = 8000,
+                    duration = TimeSpan.FromMinutes(41)
+                };
+                var content = new JsonContent(json);
+                var expected = content.ReadAsJsonAsync().Result;
+                content.Headers.ContentType.MediaType = "application/json";
+                client.PostAsync("", content).Wait();
+
+                var response = client.GetAsync("").Result;
+
+                var actual = response.Content.ReadAsJsonAsync().Result;
+                Assert.Contains(expected, actual.entries);
+            }
+        }
     }
 }

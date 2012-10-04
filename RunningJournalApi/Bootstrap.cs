@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace Ploeh.Samples.RunningJournalApi
 {
@@ -20,6 +21,9 @@ namespace Ploeh.Samples.RunningJournalApi
                 });
 
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
+
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
+                new CamelCasePropertyNamesContractResolver();
         }
     }
 }
