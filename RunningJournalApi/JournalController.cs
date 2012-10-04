@@ -16,5 +16,10 @@ namespace Ploeh.Samples.RunningJournalApi
                 HttpStatusCode.OK,
                 new JournalModel());
         }
+
+        public HttpResponseMessage Post(JournalEntryModel journalEntry)
+        {
+            return this.Request.CreateResponse();
+        }
     }
 }

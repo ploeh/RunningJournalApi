@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Bootstrap.cs" />
     <Compile Include="JournalController.cs" />
+    <Compile Include="JournalEntryModel.cs" />
     <Compile Include="JournalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
